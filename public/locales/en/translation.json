@@ -1,5 +1,8 @@
 {
   "Привет мир": "Hello world",
   "Перевод": "Translate",
-  "Язык": "English"
+  "Язык": "English",
+  "Нажать": "Toggle",
+  "Главная": "Main",
+  "О сайте": "About us"
 }
