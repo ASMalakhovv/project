@@ -12,16 +12,19 @@ describe('classnames', () => {
 
     test('with mods', () => {
         const expected = 'someClass class1 class2 click error';
-        expect(classNames('someClass', { click: true, error: true }, ['class1', 'class2'])).toBe(expected);
+        expect(classNames('someClass', { click: true, error: true }, ['class1', 'class2']))
+            .toBe(expected);
     });
 
     test('with mods false', () => {
         const expected = 'someClass class1 class2 click';
-        expect(classNames('someClass', { click: true, error: false }, ['class1', 'class2'])).toBe(expected);
+        expect(classNames('someClass', { click: true, error: false }, ['class1', 'class2']))
+            .toBe(expected);
     });
 
     test('with mods undefined', () => {
         const expected = 'someClass class1 class2 error';
-        expect(classNames('someClass', { click: undefined, error: true }, ['class1', 'class2'])).toBe(expected);
+        expect(classNames('someClass', { click: undefined, error: true }, ['class1', 'class2']))
+            .toBe(expected);
     });
 });
