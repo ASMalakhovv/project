@@ -160,8 +160,7 @@ export default {
     // Adds a location field to test results
     // testLocationInResults: false,
 
-    // An array of regexp pattern strings that are matched against
-    // all test paths, matched tests are skipped
+    // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
     // testPathIgnorePatterns: [
     //   "\\\\node_modules\\\\"
     // ],
@@ -192,8 +191,7 @@ export default {
     //   "\\.pnp\\.[^\\\\]+$"
     // ],
 
-    // An array of regexp pattern strings that are matched against
-    // all modules before the module loader will automatically return a mock for them
+    // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
     // unmockedModulePathPatterns: undefined,
 
     // Indicates whether each individual test should be reported during the run
