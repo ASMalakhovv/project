@@ -8,4 +8,12 @@
     border: none;
     outline: none;
     background-color: inherit;
+    color: var(--primary-color);
+}
+
+.outline {
+    padding: 10px 15px;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    background-color: initial;
 }
