@@ -1,0 +1,83 @@
+name: linting, testing, building
+on:
+  push:
+    branches: master
+  pull_request:
+    branches: master
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v3
+      - name: Cache deps
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: node-modules-${{ hashFiles('**/package-lock.json') }}
+      - name: Install dependencies
+        run: npm install
+      - name: eslint
+        run: npm run lint:ts
+  stylelint:
+    needs: eslint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v3
+      - name: Cache deps
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: node-modules-${{ hashFiles('**/package-lock.json') }}
+      - name: Install dependencies
+        run: npm install
+      - name: stylelint
+        run: npm run lint:scss
+  test-unit:
+    needs: stylelint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v3
+      - name: Cache deps
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: node-modules-${{ hashFiles('**/package-lock.json') }}
+      - name: Install dependencies
+        run: npm install
+      - name: test-unit
+        run: npm run test:unit
+  storybook-build:
+    needs: test-unit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v3
+      - name: Cache deps
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: node-modules-${{ hashFiles('**/package-lock.json') }}
+      - name: Install dependencies
+        run: npm install
+      - name: storybook-build
+        run: npm run storybook:build
+  build-production:
+    needs: test-unit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v3
+      - name: Cache deps
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: node-modules-${{ hashFiles('**/package-lock.json') }}
+      - name: Install dependencies
+        run: npm install
+      - name: build-production
+        run: npm run build:prod
+
+
