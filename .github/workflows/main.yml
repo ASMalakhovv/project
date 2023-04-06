@@ -64,5 +64,22 @@ jobs:
         run: npm install
       - name: build-production
         run: npm run build:prod
+  test-ui:
+    needs: build-production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v3
+      - name: Cache deps
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: node-modules-${{ hashFiles('**/package-lock.json') }}
+      - name: Install dependencies
+        run: npm install
+      - name: build-storybook
+        run: npm run storybook:build
+      - name: test-ui
+        run: npm run test:ui:ci
 
 
