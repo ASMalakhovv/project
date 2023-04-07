@@ -1,8 +1,10 @@
-import { classNames } from 'shared/lib/classnames/classnames';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { classNames } from 'shared/lib/classnames/classnames';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
-import { useTranslation } from 'react-i18next';
+import { Button } from 'shared/ui/Button/Button';
 
 import cls from './Sidebar.module.scss';
 
@@ -26,17 +28,21 @@ export function Sidebar(props: SidebarProps) {
             className={classNames(cls.Sidebar, { [cls.collapsed]: isOpen }, [className])}
             data-testid="sidebar-testid"
         >
-            <button
+            <div className={cls.switchers}>
+                <ThemeSwitcher />
+                <LangSwitcher className={cls.lang} short={isOpen}/>
+            </div>
+            <Button
                 data-testid="sidebar-toggle"
                 type="button"
                 onClick={handleToggleClick}
+                className={cls.sidebarBtn}
+                theme={'backgroundInverted'}
+                square
+                size='medium'
             >
-                {t('Нажать')}
-            </button>
-            <div className={cls.switchers}>
-                <ThemeSwitcher />
-                <LangSwitcher className={cls.lang} />
-            </div>
+                {isOpen ? '>' : '<'}
+            </Button>
         </div>
     );
 }
