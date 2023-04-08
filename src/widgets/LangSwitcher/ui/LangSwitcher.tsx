@@ -22,8 +22,8 @@ export const LangSwitcher = (props: LangSwitcherProps) => {
         <Button
             className={classNames('', {}, [className])}
             onClick={onToggleClick}
-            theme='clear'
-            size='small'
+            theme="clear"
+            size="small"
         >
             {short ? t('Короткий язык') : t('Язык')}
         </Button>

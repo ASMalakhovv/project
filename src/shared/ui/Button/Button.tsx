@@ -26,7 +26,7 @@ export const Button: FC<ButtonProps> = (props) => {
     } = props;
 
     const mods:Record<string, boolean> = {
-        [cls.square]: square
+        [cls.square]: square,
     };
 
     return (

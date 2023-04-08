@@ -30,16 +30,16 @@ export function Sidebar(props: SidebarProps) {
         >
             <div className={cls.switchers}>
                 <ThemeSwitcher />
-                <LangSwitcher className={cls.lang} short={isOpen}/>
+                <LangSwitcher className={cls.lang} short={isOpen} />
             </div>
             <Button
                 data-testid="sidebar-toggle"
                 type="button"
                 onClick={handleToggleClick}
                 className={cls.sidebarBtn}
-                theme={'backgroundInverted'}
+                theme="backgroundInverted"
                 square
-                size='medium'
+                size="medium"
             >
                 {isOpen ? '>' : '<'}
             </Button>

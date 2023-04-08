@@ -15,8 +15,8 @@ export const ThemeSwitcher = (props: ThemeSwitcherProps) => {
 
     return (
         <Button
-            theme='clear'
-            size='maxContent'
+            theme="clear"
+            size="maxContent"
             className={classNames('', {}, [className])}
             onClick={toggleThemeClick}
         >
