@@ -5,6 +5,9 @@ import { classNames } from 'shared/lib/classnames/classnames';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { Button } from 'shared/ui/Button/Button';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import AboutIcon from 'shared/assets/icons/About.svg';
+import MainIcon from 'shared/assets/icons/Main.svg';
 
 import cls from './Sidebar.module.scss';
 
@@ -28,6 +31,28 @@ export function Sidebar(props: SidebarProps) {
             className={classNames(cls.Sidebar, { [cls.collapsed]: isOpen }, [className])}
             data-testid="sidebar-testid"
         >
+            <div className={cls.links}>
+                <AppLink
+                    to="/"
+                    className={cls.link}
+                    theme="primary"
+                >
+                    <MainIcon className={cls.icon} />
+                    <span className={cls.linkTitle}>
+                        {t('Главная')}
+                    </span>
+                </AppLink>
+                <AppLink
+                    to="/about"
+                    className={cls.link}
+                    theme="primary"
+                >
+                    <AboutIcon className={cls.icon} />
+                    <span className={cls.linkTitle}>
+                        {t('О сайте')}
+                    </span>
+                </AppLink>
+            </div>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
                 <LangSwitcher className={cls.lang} short={isOpen} />

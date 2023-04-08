@@ -4,6 +4,28 @@
     background-color: var(--inverted-bg-color);
     transition: width 0.3s;
     position: relative;
+
+    .links {
+        margin-left: 30px;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .link {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+
+            .icon {
+                fill: var(--primary-color);
+            }
+
+            .linkTitle {
+                opacity: 1;
+            }
+        }
+    }
 }
 
 .switchers {
@@ -28,6 +50,19 @@
 
     .lang {
         margin-left: 0;
+    }
+
+    .links {
+        .link {
+            flex-direction: column;
+            margin-bottom: 0;
+            gap: 0;
+
+            .linkTitle {
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+        }
     }
 }
 
