@@ -3,7 +3,8 @@ import { Theme, ThemeContext } from 'app/providers/ThemeProviders';
 import { useMemo } from 'react';
 
 export const ThemeDecorator = (theme: Theme) => (StoryComponent: Story) => {
-    const memoTheme = useMemo(() => ({ theme }), [theme]);
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const memoTheme = useMemo(() => ({ theme }), []);
 
     return (
         <ThemeContext.Provider value={memoTheme}>
