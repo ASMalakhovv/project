@@ -4,7 +4,7 @@ import { classNames } from 'shared/lib/classnames/classnames';
 import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { Modal } from 'shared/ui/Modal/Modal';
+import { Counter } from 'entities/Counter';
 
 function App() {
     const { theme } = useTheme();
@@ -14,6 +14,7 @@ function App() {
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback="">
                 <Navbar />
+                <Counter />
                 <div className="content-page">
                     <Sidebar />
                     <AppRouter />
