@@ -21,7 +21,7 @@ describe('Counter', () => {
             },
         });
         fireEvent.click(screen.getByTestId(/btn-increment/i));
-        expect(screen.getByTestId(/valueCounter/i)).toHaveTextContent('11');
+        expect(screen.getByTestId(/value-counter/i)).toHaveTextContent('11');
     });
 
     test('Decrement', () => {
@@ -31,6 +31,6 @@ describe('Counter', () => {
             },
         });
         fireEvent.click(screen.getByTestId(/btn-decrement/i));
-        expect(screen.getByTestId(/valueCounter/i)).toHaveTextContent('9');
+        expect(screen.getByTestId(/value-counter/i)).toHaveTextContent('9');
     });
 });

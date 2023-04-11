@@ -22,18 +22,18 @@ export const Counter = ({ className }: CounterProps) => {
 
     return (
         <div>
-            <h1 data-testId="value-counter">
+            <h1 data-testid="value-counter">
                 {counterValue}
             </h1>
             <Button
-                data-testId="btn-increment"
+                data-testid="btn-increment"
                 size="maxContent"
                 onClick={increment}
             >
                 {t('increment')}
             </Button>
             <Button
-                data-testId="btn-decrement"
+                data-testid="btn-decrement"
                 size="maxContent"
                 onClick={decrement}
             >
