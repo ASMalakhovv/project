@@ -1,7 +1,8 @@
 import { Button } from 'shared/ui/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { counterActions } from 'entities/Counter/model/slice/counterSlice';
-import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
+import { getCounterValue } from 'entities/Counter/model/selectors/getCounterValue/getCounterValue';
+import { t } from 'i18next';
 
 interface CounterProps {
     className?: string
@@ -9,7 +10,7 @@ interface CounterProps {
 
 export const Counter = ({ className }: CounterProps) => {
     const dispatch = useDispatch();
-    const counter = useSelector((state:StateSchema) => state.counter);
+    const counterValue = useSelector(getCounterValue);
 
     const increment = () => {
         dispatch(counterActions.increment());
@@ -21,21 +22,22 @@ export const Counter = ({ className }: CounterProps) => {
 
     return (
         <div>
-            <h1>
-                value=
-                {counter.value}
+            <h1 data-testId="value-counter">
+                {counterValue}
             </h1>
             <Button
+                data-testId="btn-increment"
                 size="maxContent"
                 onClick={increment}
             >
-                increment
+                {t('increment')}
             </Button>
             <Button
+                data-testId="btn-decrement"
                 size="maxContent"
                 onClick={decrement}
             >
-                decrement
+                {t('decrement')}
             </Button>
         </div>
     );

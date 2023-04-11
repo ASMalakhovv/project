@@ -8,13 +8,11 @@ import { Counter } from 'entities/Counter';
 
 function App() {
     const { theme } = useTheme();
-    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback="">
                 <Navbar />
-                <Counter />
                 <div className="content-page">
                     <Sidebar />
                     <AppRouter />
