@@ -8,11 +8,13 @@ export interface UseThemeResult {
 
 export const useTheme = (): UseThemeResult => {
     const { theme, setTheme } = useContext(ThemeContext);
+    document.body.className = theme;
 
     const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
 
     const toggleThemeClick = () => {
         setTheme(newTheme);
+        document.body.className = newTheme;
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
     };
 
