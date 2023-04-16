@@ -1,9 +1,10 @@
-import { classNames } from 'shared/lib/classnames/classnames';
-
-import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui/Button/Button';
-import { Modal } from 'shared/ui/Modal/Modal';
 import React, { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { classNames } from 'shared/lib/classnames/classnames';
+import { Button } from 'shared/ui/Button/Button';
+import { LoginModal } from 'feature/AuthByUserName';
+
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -16,8 +17,12 @@ export const Navbar = (props: NavbarProps) => {
     const { className } = props;
 
     const onIsOpenChange = useCallback(() => {
-        setIsOpen((prevState) => !prevState);
+        setIsOpen(true);
     }, []);
+
+    const onLoginModalClose = () => {
+        setIsOpen(false);
+    };
 
     return (
         <div className={classNames(cls.Navbar, {}, [className])}>
@@ -29,12 +34,7 @@ export const Navbar = (props: NavbarProps) => {
             >
                 {t('Войти')}
             </Button>
-            {/* eslint-disable-next-line i18next/no-literal-string */}
-            <Modal isOpen={isOpen} onClose={onIsOpenChange}>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
-                {/* eslint-disable-next-line */}
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur doloribus exercitationem facilis laboriosam nulla quod ratione reiciendis sunt veritatis voluptates!
-            </Modal>
+            <LoginModal isOpen={isOpen} onClose={onLoginModalClose} />
         </div>
     );
 };

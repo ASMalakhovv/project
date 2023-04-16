@@ -1,0 +1,12 @@
+.inputWrapper {
+    background-color: white;
+    color: black;
+
+    .input {
+        background-color: inherit;
+        color: inherit;
+        border: 1px solid black;
+        outline: none;
+        width: 100%;
+    }
+}
