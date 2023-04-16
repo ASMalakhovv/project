@@ -1,10 +1,7 @@
 import React from 'react';
 
-import { classNames } from 'shared/lib/classnames/classnames';
 import { Modal } from 'shared/ui/Modal/Modal';
 import { LoginForm } from 'feature/AuthByUserName/ui/LoginForm/LoginForm';
-
-import cls from './LoginModal.module.scss';
 
 interface LoginModalProps {
     className?: string
@@ -17,7 +14,6 @@ export const LoginModal = React.memo((props: LoginModalProps) => {
 
     return (
         <Modal
-            className={classNames(cls.LoginModal, {}, [className])}
             onClose={onClose}
             isOpen={isOpen}
             lazy
