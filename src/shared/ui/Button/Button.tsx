@@ -22,15 +22,18 @@ export const Button: FC<ButtonProps> = (props) => {
         children,
         square = false,
         size = 'medium',
+        disabled,
         ...otherProps
     } = props;
 
     const mods:Record<string, boolean> = {
         [cls.square]: square,
+        [cls.disabled]: disabled,
     };
 
     return (
         <button
+            disabled={disabled}
             type="button"
             className={classNames(cls.Button, mods, [className, cls[theme], cls[size]])}
             {...otherProps}

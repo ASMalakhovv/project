@@ -109,3 +109,11 @@ SquareSizeLarge.args = {
     size: 'large',
     theme: 'backgroundInverted',
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+    children: 'Disabled',
+    size: 'maxContent',
+    disabled: true,
+    theme: 'backgroundInverted',
+};
