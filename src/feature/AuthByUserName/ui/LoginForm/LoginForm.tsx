@@ -8,6 +8,7 @@ import { Button } from 'shared/ui/Button/Button';
 import { getLoginForm, loginActions } from 'feature/AuthByUserName';
 import { loginByUserName } from 'feature/AuthByUserName/model/services/loginByUserName/loginByUserName';
 
+import { Text } from 'shared/ui/Text/Text';
 import cls from './LoginForm.module.scss';
 
 interface LoginFormProps {
@@ -35,6 +36,8 @@ export const LoginForm = ({ className }: LoginFormProps) => {
 
     return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
+            <Text title={t('Авторизация')} />
+            {error && <Text text={t('Проверьте правильность введенных данных')} theme="error" />}
             <Input
                 name="userName"
                 className={cls.input}
@@ -54,6 +57,7 @@ export const LoginForm = ({ className }: LoginFormProps) => {
                 className={cls.btn}
                 size="maxContent"
                 onClick={onLoginFormSubmit}
+                disabled={isLoading}
             >
                 {t('Войти')}
             </Button>
