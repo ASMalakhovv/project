@@ -23,3 +23,23 @@ Main.decorators = [StoreDecorator({
 }),
 ];
 Main.args = {};
+
+export const WithError = Template.bind({});
+WithError.decorators = [StoreDecorator({
+    loginForm: {
+        password: '123',
+        username: 'admin',
+        error: 'ERROR',
+    },
+}),
+];
+WithError.args = {};
+
+export const IsLoading = Template.bind({});
+IsLoading.decorators = [StoreDecorator({
+    loginForm: {
+        isLoading: true,
+    },
+}),
+];
+IsLoading.args = {};
