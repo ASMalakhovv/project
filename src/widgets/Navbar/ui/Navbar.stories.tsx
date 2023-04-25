@@ -31,3 +31,15 @@ Dark.decorators = [StoreDecorator({
         },
     },
 }), ThemeDecorator(Theme.DARK)];
+
+export const AuthNavbar = Template.bind({});
+AuthNavbar.decorators = [StoreDecorator({
+    user: {
+        authData: {
+            id: '1',
+            username: 'admin',
+            password: '123',
+        },
+    },
+})];
+AuthNavbar.args = {};
